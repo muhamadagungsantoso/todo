@@ -15,7 +15,8 @@ class MyApp extends StatelessWidget {
       title: "To Do App",
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.green,
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+        useMaterial3: true,
         textTheme: GoogleFonts.poppinsTextTheme(
           Theme.of(context).textTheme
         )
