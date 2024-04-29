@@ -50,6 +50,13 @@ class _HomePageState extends State<HomePage> {
     Navigator.of(context).pop();
   }
 
+  // delete a task
+  deleteTask(int index) {
+    setState(() {
+      todoList.removeAt(index);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -72,6 +79,7 @@ class _HomePageState extends State<HomePage> {
             taskName: todoList[index][0],
             taskCompleted: todoList[index][1],
             onChanged: (p0) => checkBoxChanged(p0, index),
+            deleteFunction: (p0) => deleteTask(index),
           );
         },
       ),
