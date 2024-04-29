@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "package:todo/utility/dialog_box.dart";
 import "package:todo/utility/todo_tile.dart";
 
 class HomePage extends StatefulWidget {
@@ -14,11 +15,39 @@ class _HomePageState extends State<HomePage> {
     ["Take a shower", false]
   ];
 
+  // text controller
+  final _controller = TextEditingController();
+
   // checkbox was tapped
   checkBoxChanged(bool? value, int index) {
     setState(() {
       todoList[index][1] = !todoList[index][1];
     });
+  }
+
+  // create a new task
+  void createNewTask() {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return MyDialogBox(
+          controller: _controller,
+          onSave: saveNewTask,
+          onCancel: () {
+            Navigator.of(context).pop();
+          },
+        );
+      }
+    );
+  }
+
+  // save new task
+  void saveNewTask() {
+    setState(() {
+      todoList.add([_controller.text, false]);
+      _controller.clear();
+    });
+    Navigator.of(context).pop();
   }
 
   @override
@@ -45,6 +74,12 @@ class _HomePageState extends State<HomePage> {
             onChanged: (p0) => checkBoxChanged(p0, index),
           );
         },
+      ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: createNewTask,
+        elevation: 5,
+        label: const Text("Tambah"),
+        icon: const Icon(Icons.add),
       ),
     );
   }
