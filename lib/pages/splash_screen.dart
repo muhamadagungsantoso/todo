@@ -23,7 +23,7 @@ class SplashScreen extends StatelessWidget {
           )
         ],
       ),
-      duration: 5000,
+      duration: 2500,
       backgroundColor: Colors.lightBlue,
       splashIconSize: 300,
       nextScreen: const HomePage(),
