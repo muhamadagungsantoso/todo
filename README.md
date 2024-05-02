@@ -1,5 +1,5 @@
 # To Do App
-A simple To Do Application using Flutter prgramming framework.
+A simple To Do Application using Flutter programming framework.
 
 ## What can this application do?
 This application can view and add tasks to your daily work. If you are finished with the task, you can delete the tasks you have completed. This application uses a simple design and makes it easy for users to use this application.
