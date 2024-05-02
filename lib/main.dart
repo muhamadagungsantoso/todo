@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:todo/pages/splash_screen.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
-void main() {
+void main() async {
+  // hive init
+  await Hive.initFlutter();
+
+  // open a box
+  await Hive.openBox("mybox");
+
   runApp(const MyApp());
 }
 
