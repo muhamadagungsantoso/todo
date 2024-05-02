@@ -1,16 +1,21 @@
-# todo
+# To Do App
+A simple To Do Application using Flutter prgramming framework.
 
-A simple To Do Application.
+## What can this application do?
+This application can view and add tasks to your daily work. If you are finished with the task, you can delete the tasks you have completed. This application uses a simple design and makes it easy for users to use this application.
 
 ## Getting Started
+You can simply clone this repository using the following command:
 
-This project is a starting point for a Flutter application.
+1. Head to folder you want then run this command
 
-A few resources to get you started if this is your first Flutter project:
+    ```shell
+    git clone "https://github.com/muhamadagungsantoso/todo.git"
+    ```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+1. Move to a new folder then start the application using `flutter run`
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+    ```shell
+    cd todo
+    flutter run
+    ```
