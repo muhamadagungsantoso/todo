@@ -14,23 +14,10 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   // reference hive box
   final _myBox = Hive.box('mybox');
-  TodoDatabase db = TodoDatabase();
-
-  @override
-  void initState() {
-    // jika aplikasi pertama kali dibuka, buat default data
-    if (_myBox.get("TODOLIST") == null) {
-      db.createInitialData();
-    } else {
-      // jika tidak, load data
-      db.loadData();
-    }
-
-    super.initState();
-  }
-
   // text controller
   final _controller = TextEditingController();
+  // database instance
+  TodoDatabase db = TodoDatabase();
 
   // checkbox was tapped
   checkBoxChanged(bool? value, int index) {
@@ -67,11 +54,24 @@ class _HomePageState extends State<HomePage> {
   }
 
   // delete a task
-  deleteTask(int index) {
+  void deleteTask(int index) {
     setState(() {
       db.todoList.removeAt(index);
     });
     db.updateData();
+  }
+
+  @override
+  void initState() {
+    // jika aplikasi pertama kali dibuka, buat default data
+    if (_myBox.get("TODOLIST") == null) {
+      db.createInitialData();
+    } else {
+      // jika tidak, load data
+      db.loadData();
+    }
+
+    super.initState();
   }
 
   @override
